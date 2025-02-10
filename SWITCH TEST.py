@@ -25,6 +25,8 @@ GPIO.setup(Button6_PIN, GPIO.OUT)
 GPIO.setup(Button7_PIN, GPIO.OUT)
 GPIO.setup(Button8_PIN, GPIO.OUT)
 
+def toggleButton(pin):
+    GPIO.output(pin, not GPIO.input(pin))
 
 
 #GPIO.output(Button1,FALSE)
@@ -42,9 +44,11 @@ root.rowconfigure(1,weight=1)
 
 #Creating a label widget
 Button1 = Button(root,text="HEADLIGHT", padx=30,pady=64, activebackground="green", 
-font=("Sans medium", 24),relief="raised", fg="white", bg="blue", bd="6", highlightcolor="black")
+font=("Sans medium", 24),relief="raised", fg="white", bg="blue", bd="6", highlightcolor="black",
+command=lambda: toggleButton(Button1_PIN))
 Button2 = Button(root,text="TAILLIGHTS", padx=30,pady=64, activebackground="green", 
-font=("Sans medium", 24),relief="raised", fg="white", bg="blue", bd="6", highlightcolor="black")
+font=("Sans medium", 24),relief="raised", fg="white", bg="blue", bd="6", highlightcolor="black",
+command=lambda: toggleButton(Button2_PIN))
 Button3 = Button(root,text="OFFROAD LIGHTs", padx=30,pady="47", activebackground="green", 
 font=("Sans medium", 24),relief="raised", fg="white", bg="blue", bd="6", highlightcolor="black", wraplength="160")
 Button4 = Button(root,text="ROCK LIGHTS", padx=30,pady="50", activebackground="green", 
